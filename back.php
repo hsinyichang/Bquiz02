@@ -19,18 +19,18 @@ include_once "base.php";
 	<div id="all">
     	<div id="title">
         <?=date("m 月 d 號 l");?> | 今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total'];?> | 累積瀏覽: <?=$Total->math('sum','total');?>
-		<a href="index.php"><span style="float: right;">回首頁</span></a>
+		<a href="back.php"><span style="float: right;">回首頁</span></a>
 		</div>
-        <div id="title2" title="健康促進網-回首頁" onclick="location.href='index.php'">
+        <div id="title2" title="健康促進網-回首頁" onclick="location.href='back.php'">
 			<img src="./icon/02B01.jpg" alt="">
         </div>
         <div id="mm">
         	<div class="hal" id="lef">
-            	<a class="blo" href="?do=po">分類網誌</a>
-             	<a class="blo" href="?do=news">最新文章</a>
-             	<a class="blo" href="?do=pop">人氣文章</a>
-             	<a class="blo" href="?do=know">講座訊息</a>
-             	<a class="blo" href="?do=que">問卷調查</a>
+            	<a class="blo" href="?do=user">帳號管理</a>
+             	<a class="blo" href="?do=po">分類網誌</a>
+             	<a class="blo" href="?do=news">最新文章管理</a>
+             	<a class="blo" href="?do=know">講座管理</a>
+             	<a class="blo" href="?do=que">問卷管理</a>
             </div>
             <div class="hal" id="main">
             	<div>
@@ -44,11 +44,11 @@ include_once "base.php";
 					<?php
 							// $do=isset($_GET['do'])?$_GET['do']:'main';
 							$do=$_GET['do']??'main';
-							$file='./front/'.$do.".php";
+							$file='./back/'.$do.".php";
 							if(file_exists($file)){
 								include $file;
 							}else{
-								include "./front/main.php";
+								include "./back/main.php";
 							}
 
 						?>
