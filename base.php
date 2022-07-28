@@ -144,6 +144,7 @@ function to($url){
 }
 
 $Total=new DB('total');
+$User=new DB('user');
 
 // 製作每日瀏覽人次紀錄功能
 if(!isset($_SESSION['total'])){
