@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Taipei");
 
 class DB{
    protected $table;
-   protected $dsn='mysql:host=localhost;charset=utf8;dbname=db20';
+   protected $dsn='mysql:host=localhost;charset=utf8;dbname=db02';
    protected $pdo;
 
 
@@ -145,6 +145,19 @@ function to($url){
 
 $Total=new DB('total');
 
+// 製作每日瀏覽人次紀錄功能
+if(!isset($_SESSION['total'])){
+    $chkDate=$Total->math('count','id',['date'=>date("Y-m-d")]);
+    if($chkDate>=1){//先檢查有沒有今天的日期，有的話執行
+        $total=$Total->find(['date'=>date("Y-m-d")]);
+        $total['total']=$total['total']+1;
+        $Total->save($total);
+        $_SESSION['total']=1;
+    }else{//沒有就直接系統建立日期，total人數為1人
+        $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
+        $_SESSION['total']=1;
+    }
+}
 
 
 
