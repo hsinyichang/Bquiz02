@@ -25,9 +25,9 @@
 
 <script>
 function login(){
-    let acc=$("#acc").val();
-    let pw=$("#pw").val();
-    $.post("./api/chk_acc.php",{acc},(res)=>{
+    let acc=$("#acc").val();//抓到acc的值
+    let pw=$("#pw").val();//抓到pw的值
+    $.post("./api/chk_acc.php",{acc},(res)=>{//到網址內抓到acc的值(echo)回傳
         console.log('acc',res)
         if(parseInt(res)===1){
             $.post("./api/chk_pw.php",{acc,pw},(res)=>{
