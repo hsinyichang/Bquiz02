@@ -15,7 +15,7 @@
         <button onclick="$('table input').prop('checked',false)">清空選取</button>
     </div>
 
-</fieldset>
+
 
 <h1>會員註冊</h1>
     <div style="color:red">*請設定您要註冊的帳號及密碼(最長12個字元)</div>
@@ -45,10 +45,10 @@
             <td></td>
         </tr>
     </table>
-
+</fieldset>
 <script>
     getUsers();
-    
+
     function getUsers(){
     $.get("./api/users.php",(users)=>{  //這裡不用帶參數，因為要顯示全部的資料
         $("#users").html(users)
