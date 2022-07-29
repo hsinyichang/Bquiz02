@@ -17,10 +17,11 @@
 
     ?>
     <tr>
-        <td><?=$key+1;?></td>
+        <td><?=$now*$div-2+$key?></td>
         <td><?=$row['title'];?></td>
         <td><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
         <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>" ></td>
+        <input type="hidden" name="id[]" value="<?=$row['id'];?>">  <!--帶一個隱藏id修正更新資料問題-->
 
     </tr>
     <?php
