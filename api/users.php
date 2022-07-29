@@ -3,6 +3,7 @@ include_once "../base.php";
 
 $users=$User->all();
 foreach($users as $user){
+    if($user['acc']!=='admin'){    //管理者帳號不要顯示
     echo "<tr>";
     echo "<td>{$user['acc']}</td>";
     echo "<td>".
@@ -12,5 +13,6 @@ foreach($users as $user){
     echo "<input type='checkbox' name='del[]' value='{$user['id']}'>";  //刪除帶入id值
     echo "</td>";
     echo "</tr>";
+    }
 }
 ?>
