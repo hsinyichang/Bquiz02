@@ -20,8 +20,11 @@
         foreach($rows as $row){
         ?>
         <tr>
-            <td class="clo"><?=$row['title'];?></td>
-            <td><?=mb_substr($row['text'],0,20);?>...</td> <!--取前面的幾個字-->
+            <td class="title clo"><?=$row['title'];?></td>
+            <td class="pop">
+                <span class="summary"><?=mb_substr($row['text'],0,20);?>...</span> <!--取前面的幾個字-->
+                <div class="modal"><?=nl2br($row['text'])?></div>
+            </td>
             <td></td>
         </tr>
         <?php 
@@ -49,3 +52,36 @@
 
         ?>
 </fieldset>
+
+<script>
+$(".title, .pop").hover(  //加了.pop  是可以讓游標移到彈出視窗捲動
+    function(){
+        $(this).parent().find('.modal').show()  
+    },
+    function(){
+        $(this).parent().find('.modal').hide()
+    }
+    )
+
+
+
+
+    /* $(".title").hover(
+    function (){
+        $(this).next().children('.modal').show()
+    },
+    function (){
+        $(this).next().children('.modal').hide()
+    }
+)
+$(".pop").hover(
+    function (){
+        $(this).children('.modal').show()
+    },
+    function (){
+        $(this).children('.modal').hide()
+    }
+)
+ */
+
+</script>

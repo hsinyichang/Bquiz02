@@ -19,7 +19,7 @@
         foreach($rows as $row){
         ?>
         <tr>
-            <td class="clo title">
+            <td class="clo title" style="cursor: pointer;">
                 <?=$row['title'];?>
             </td>
             <td>

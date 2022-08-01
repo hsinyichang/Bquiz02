@@ -10,10 +10,22 @@ include_once "base.php";
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/js.js"></script>
 </head>
+<style>
+	.modal{
+		background:rgba(51,51,51,0.8);
+		display: none;
+		color:#FFF;
+		height:410px;
+		width:500px;
+		position:fixed;
+		z-index:9999;
+		overflow:auto;
+	}
+</style>
 
 <body>
-<div id="alerr" style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
-	<pre id="ssaa"></pre>
+<div class="modal">
+	<pre class="ssaa"></pre>
 </div>
 <iframe name="back" style="display:none;"></iframe>
 	<div id="all">
