@@ -73,13 +73,16 @@ $(".title").on("click",function(){
 $(".great").on("click",function(){ //自己寫 不要用js的good
     let text=$(this).text()
     let num=parseInt($(this).siblings('span').text())//轉數字  同層不同元素要使用兄弟siblings
+    let id=$(this).data('id')
+    $.post('./api/good.php',{id,text},()=>{
     if(text==='讚'){
-        text=$(this).text('收回讚')
+        $(this).text('收回讚')
         $(this).siblings('span').text(num+1)
     }else{
-        text=$(this).text('讚')
+        $(this).text('讚')
         $(this).siblings('span').text(num-1)
     }
+})
 })
 
 </script>
