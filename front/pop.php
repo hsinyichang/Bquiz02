@@ -56,7 +56,7 @@
 <script>
 $(".title, .pop").hover(  //加了.pop  是可以讓游標移到彈出視窗捲動
     function(){
-        $(this).parent().find('.modal').show()  
+        $(this).parent().find('.modal').show()  //這裡使用parent  find是因為.title 和.pop的next child無法一起找到modal這個div
     },
     function(){
         $(this).parent().find('.modal').hide()
