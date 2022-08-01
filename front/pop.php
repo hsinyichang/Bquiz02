@@ -25,7 +25,14 @@
                 <span class="summary"><?=mb_substr($row['text'],0,20);?>...</span> <!--取前面的幾個字-->
                 <div class="modal"><?=nl2br($row['text'])?></div>
             </td>
-            <td></td>
+            <td>
+               <span><?=$row['good']?></span> 個人說<img src="./icon/02B03.jpg" style="width: 25px;">
+               <?php
+               if(isset($_SESSION['user'])){   //未登入不會顯示讚可以按
+                echo "-<a href='#' class='great'>讚</a>";
+                }
+               ?>
+            </td>
         </tr>
         <?php 
         }
@@ -62,6 +69,18 @@ $(".title, .pop").hover(  //加了.pop  是可以讓游標移到彈出視窗捲�
         $(this).parent().find('.modal').hide()
     }
     )
+
+$(".great").on("click",function(){ //自己寫 不要用js的good
+    let text=$(this).text()
+    let num=parseInt($(this).siblings('span').text())//轉數字  同層不同元素要使用兄弟siblings
+    if(text==='讚'){
+        text=$(this).text('收回讚')
+        $(this).siblings('span').text(num+1)
+    }else{
+        text=$(this).text('讚')
+        $(this).siblings('span').text(num-1)
+    }
+})
 
 
 
