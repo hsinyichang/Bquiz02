@@ -29,7 +29,11 @@
                <span><?=$row['good']?></span> 個人說<img src="./icon/02B03.jpg" style="width: 25px;">
                <?php
                if(isset($_SESSION['user'])){   //未登入不會顯示讚可以按
+                if($Log->math('count','id',['news'=>$row['id'],'user'=>$_SESSION['user']])>0){  //如果log資料表裡有案讚的紀錄
+                    echo " - <a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";    //則顯示''收回讚''
+                    }else{    
                 echo "-<a href='#' class='great' data-id={$row['id']}>讚</a>"; //再data-id代入id值
+                }
                 }
                ?>
             </td>
