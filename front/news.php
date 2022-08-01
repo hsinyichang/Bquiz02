@@ -29,7 +29,11 @@
             <td>
             <?php
                if(isset($_SESSION['user'])){   //未登入不會顯示讚可以按
-                echo "<a href='#' class='great'>讚</a>";
+                if($Log->math('count','id',['news'=>$row['id'],'user'=>$_SESSION['user']])>0){
+                    echo "<a class='great' href='#' data-id='{$row['id']}'>收回讚</a>";
+                }else{
+                    echo "<a class='great' href='#' data-id='{$row['id']}'>讚</a>";
+                }
                 }
                ?>
             </td>
