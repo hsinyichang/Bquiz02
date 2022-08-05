@@ -1,6 +1,6 @@
 <?php
 $subject=$Que->find($_GET['id']);
-$options=$Que->all(['subject_id'=>$_GET['id']]);
+$options=$Que->all(['subject_id'=>$_GET['id']]);//subject_id 是傳進來問題的id
 
 ?>
 
