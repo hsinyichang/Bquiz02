@@ -71,7 +71,7 @@ include_once "base.php";
 							}
 							?>
                     </span>
-                    <div class="content">
+                    <div>
 					<?php
 							// $do=isset($_GET['do'])?$_GET['do']:'main';
 							$do=$_GET['do']??'main';
